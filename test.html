@@ -1,0 +1,25 @@
+<html>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<body>  
+<input type="text" name="emp_id" id="emp_id" placeholder="employ Id" class="numeric"  maxlength="4" >
+<span id="error"></span> 
+</body>
+   <script type="text/javascript">
+        var specialKeys = new Array();
+        specialKeys.push(8); //Backspace
+        $(function () {
+            $(".numeric").bind("keypress", function (e) {
+                var keyCode = e.which ? e.which : e.keyCode
+                var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+              
+                return ret;
+            });
+            $(".numeric").bind("paste", function (e) {
+                return false;
+            });
+            $(".numeric").bind("drop", function (e) {
+                return false;
+            });
+        });
+    </script>
+</html>
